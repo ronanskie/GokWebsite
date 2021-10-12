@@ -1,0 +1,32 @@
+ head {
+ 	height: 0;
+ }
+
+ body, html {
+ 	  /* The image used */
+  background-image: url("../assets/LoginBack.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* Height of the footer*/ 
+    height: 10%;
+    background: rgba(0,0,0,0.4);
+}
+
+#foot {
+	text-align: center;
+	color: white;
+}
+
