@@ -16,6 +16,33 @@
   overflow: hidden;
 }
 
+#username, #pwd, #submit{
+    width: 50%;
+    height: 50px;
+    color: white;
+}
+
+#username{
+    margin-top: 2%;
+}
+
+#pwd{
+    margin-top: 2%;
+}
+
+#submit{
+    margin-top: 2%;
+    background-color: #9fa3a6;
+    font-size: 30px;
+    font-style: bold;
+    border-radius: 25%;
+    border-width: 5px;
+}
+
+#usernametxt, #pwdtxt{
+    color: white;
+}
+
 #footer {
     position: fixed;
     bottom: 0;
