@@ -3,44 +3,50 @@
  }
 
  body, html {
- 	  /* The image used */
-  background-image: url("../assets/LoginBack.jpg");
+ 	/* The image used */
+    background-image: url("../assets/LoginBack.jpg");
 
-  /* Full height */
-  height: 100%;
+    /* Full height */
+    height: 100%;
 
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: hidden;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+#loginMenuDiv{
+    position: fixed;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    display: inline-block;
+    left: 50%;
+    margin-left: -15%;
+    width: 30%;
+    height: 30%;
+}
+
+#loginMenu{
+
 }
 
 #username, #pwd, #submit{
-    width: 50%;
-    height: 50px;
-    color: white;
-}
+    /*centers elements within loginMenuDiv*/
+    position: relative;
+    left: 50%;
+    margin-left: -45%;
 
-#username{
-    margin-top: 2%;
-}
-
-#pwd{
-    margin-top: 2%;
+    display: block;/*displays elements below eachother*/
+    width: 80%;
+    height: 30%;
+    margin-top: 10px;
+    padding: 20px;
+    box-sizing: content-box; /*gives all elements same width by giving the same box sizing*/
 }
 
 #submit{
-    margin-top: 2%;
-    background-color: #9fa3a6;
-    font-size: 30px;
-    font-style: bold;
-    border-radius: 25%;
-    border-width: 5px;
-}
-
-#usernametxt, #pwdtxt{
-    color: white;
 }
 
 #footer {
