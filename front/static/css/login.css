@@ -16,6 +16,25 @@
     overflow: hidden;
 }
 
+#alertBlock{
+    position: fixed;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    display: inline-block;
+    left: 50%;
+    margin-left: -25%;
+    margin-top: -1%;
+    width: 50%;
+    height: 3%;
+    /*text characteristics*/
+    text-align: center;
+    color: white;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 #loginMenuDiv{
     position: fixed;
     border-radius: 5px;
@@ -23,20 +42,17 @@
     padding: 20px;
     display: inline-block;
     left: 50%;
+    top:  20%;
     margin-left: -15%;
     width: 30%;
-    height: 30%;
+    height: 22%;
 }
 
-#loginMenu{
-
-}
-
-#username, #pwd, #submit{
+#username, #pwd, #login, #register{
     /*centers elements within loginMenuDiv*/
     position: relative;
     left: 50%;
-    margin-left: -45%;
+    margin-left: -43%;
 
     display: block;/*displays elements below eachother*/
     width: 80%;
@@ -44,12 +60,38 @@
     margin-top: 10px;
     padding: 20px;
     box-sizing: content-box; /*gives all elements same width by giving the same box sizing*/
+    border-radius: 10px; /*gives rounded edges to the boxes*/
+    border: 1px solid #000000;
 }
 
-#submit{
+#username, #pwd{
+    background-color: #b8b6b2;
 }
 
-#footer {
+#login, #register{
+    font-family: 'Courier New', monospace;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+#login{
+    background-color: #1d6100;
+}
+
+#login:hover{
+    background-color: #70a33c;
+}
+
+#register{
+    background-color: #006273;
+}
+
+#register:hover{
+    background-color: #348694
+}
+
+#footer{
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -58,8 +100,24 @@
     background: rgba(0,0,0,0.4);
 }
 
-#foot {
-	text-align: center;
-	color: white;
+#info{
+    position: fixed;
+    width: 6%;
+    height: 6%;
+    left: 50%;
+    margin-top: 20px;
+    margin-left: -3%;
+    border-radius: 20px;
+    color: #88898a;
+    font-size: 50px;
+    font-family: 'OCR A Std', monospace;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.4);
+    border-color: #88898a;
+    border-width: 3px;
+}
+
+#info:hover{
+    background-color: rgba(146,146,146,0.4);
 }
 
