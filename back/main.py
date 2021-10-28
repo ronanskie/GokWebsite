@@ -4,6 +4,7 @@
 import os
 from flask import Flask, render_template, request, flash, redirect, url_for, session #flask framework
 import sqlite3 
+from db import DB
 
 template_dir = os.path.abspath('../front/templates') #setting path to template directory
 static_dir = os.path.abspath('../front/static') #setting path to static directory
@@ -14,11 +15,17 @@ app.config['SECRET_KEY'] = 'gkwemfewown' #setting secret key
 def login():
 
 	if request.method == "POST":
+		#login submit button
 		if request.form.get("action") == "login":
-			print("The following user has been logged in:")
+			username = request.form["username"] #gets username and password when user submits them
+			password = request.form["password"]
+			print("The following user has been logged in:" + username + "(" + password + ")")
 
+		#register submit button
 		elif request.form.get("action") == "register":
-			print("The following user has been registered:")
+			username = request.form["username"] #gets username and password when user submits them
+			password = request.form["password"]
+			print("The following user has been registered" + username + "(" + password + ")")
 
 	return render_template("login.html")
 
