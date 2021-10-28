@@ -4,6 +4,7 @@ import os
 import sys
 import sqlite3
 from sqlite3 import Error
+from queryCreate import queryCreater
 
 class DB:
 
@@ -21,3 +22,20 @@ class DB:
 				print(e)
 
 		return conn
+
+	#queries to set a value
+	def setValue(self, column, value, conn):
+		queryCreater = queryCreater()
+		cur = conn.cursor()
+		query = queryCreater.createSetQuery(column, value)
+		cur.execute(query)
+		conn.commit()
+
+	#query for getting a value
+	def getValue(self, column, conn): 
+		queryCreater = queryCreater()
+		cur = conn.cursor()
+		query = queryCreater.createGetQuery(column)
+		cur.execute(query)
+		row = cur.fetchone()
+		return row[0]
