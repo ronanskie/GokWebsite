@@ -12,6 +12,14 @@ app.config['SECRET_KEY'] = 'gkwemfewown' #setting secret key
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
+
+	if request.method == "POST":
+		if request.form.get("action") == "login":
+			print("The following user has been logged in:")
+
+		elif request.form.get("action") == "register":
+			print("The following user has been registered:")
+
 	return render_template("login.html")
 
 if __name__ == "__main__":
