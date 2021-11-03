@@ -33,7 +33,7 @@ def login():
 
 			newUid = Assist.newUid(dataB, conn)
 			print(newUid)
-			dataB.insertRow(newUid, password, username)
+			dataB.insertRow(newUid, password, username, conn)
 
 	return render_template("login.html")
 
