@@ -8,10 +8,8 @@ from db import DB
 
 class Assist:
 
-
-
 	#returns new uid for registering new user
-	def newUid(self, dataB, conn):
+	def newUid(dataB, conn):
 		uid = dataB.getValue(0, 1, 0, conn) + 1
 		return uid
 

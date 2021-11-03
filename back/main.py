@@ -13,7 +13,6 @@ app = Flask(__name__, template_folder=template_dir, static_folder=static_dir) #s
 app.config['SECRET_KEY'] = 'gkwemfewown' #setting secret key
 
 dataB = DB() #creates instance of database
-ass = Assist() #creates instance of assist class
 conn = dataB.createConnection() #creates connection with database
 
 @app.route('/', methods=['GET', 'POST'])
@@ -32,7 +31,7 @@ def login():
 			password = request.form["password"]
 			print("The following user has been registered" + username + "(" + password + ")")
 
-			newUid = ass.newUid(dataB, conn)
+			newUid = Assist.newUid(dataB, conn)
 			print(newUid)
 			dataB.insertRow(newUid, password, username)
 
