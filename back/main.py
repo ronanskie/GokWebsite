@@ -5,11 +5,16 @@ import os
 from flask import Flask, render_template, request, flash, redirect, url_for, session #flask framework
 import sqlite3 
 from db import DB
+from mainAssist import Assist
 
 template_dir = os.path.abspath('../front/templates') #setting path to template directory
 static_dir = os.path.abspath('../front/static') #setting path to static directory
 app = Flask(__name__, template_folder=template_dir, static_folder=static_dir) #sets new directory for templates (html files etc.)
 app.config['SECRET_KEY'] = 'gkwemfewown' #setting secret key
+
+dataB = DB() #creates instance of database
+ass = Assist() #creates instance of assist class
+conn = dataB.createConnection() #creates connection with database
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
@@ -26,6 +31,10 @@ def login():
 			username = request.form["username"] #gets username and password when user submits them
 			password = request.form["password"]
 			print("The following user has been registered" + username + "(" + password + ")")
+
+			newUid = ass.newUid(dataB, conn)
+			print(newUid)
+			dataB.insertRow(newUid, password, username)
 
 	return render_template("login.html")
 
