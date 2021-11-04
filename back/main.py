@@ -23,17 +23,22 @@ def login():
 		if request.form.get("action") == "login":
 			username = request.form["username"] #gets username and password when user submits them
 			password = request.form["password"]
-			print("The following user has been logged in:" + username + "(" + password + ")")
+
+			if Assist.loginCheck(username, password, dataB, conn) is True:
+				print("The following user has been logged in:" + username + "(" + password + ")")
+				#code here for sending user to home page
 
 		#register submit button
 		elif request.form.get("action") == "register":
 			username = request.form["username"] #gets username and password when user submits them
 			password = request.form["password"]
-			print("The following user has been registered" + username + "(" + password + ")")
 
-			newUid = Assist.newUid(dataB, conn)
-			print(newUid)
-			dataB.insertRow(newUid, password, username, conn)
+			#checks if username is valid so it can be registered
+			if Assist.registerCheck(username, dataB, conn) is True:
+				newUid = Assist.newUid(dataB, conn)
+				print(newUid)
+				dataB.insertRow(newUid, password, username, conn)
+				print("The following user has been registered " + username + "(" + password + ")")
 
 	return render_template("login.html")
 

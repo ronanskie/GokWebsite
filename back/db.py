@@ -27,20 +27,28 @@ class DB:
 	def setValue(self, column, value, conn):
 		cur = conn.cursor()
 		query = queryCreater.createSetQuery(column, value)
+		print('following query has been executed: ' + query)
 		cur.execute(query)
 		conn.commit()
 
 	#query for getting a value, column for column name and rowsNr for how much results have to be returned
-	def getValue(self, column, rowsNr, value, conn): 
+	def getValue(self, column, column2, rowsNr, value, conn): 
 		cur = conn.cursor()
-		query = queryCreater.createGetQuery(column, rowsNr, value)
+		query = queryCreater.createGetQuery(column, column2, rowsNr, value)
+		print('following query has been executed: ' + query)
 		cur.execute(query)
 		row = cur.fetchone()
-		return row[0]
+
+		if row is None:
+			return None
+
+		else:
+			return row[0]
 
 	#query for inserting new row
 	def insertRow(self, uid, password, username, conn):
 		cur = conn.cursor()
 		query = queryCreater.createInsertQuery(uid, password, username)
+		print('following query has been executed: ' + query)
 		cur.execute(query)
 		conn.commit()
