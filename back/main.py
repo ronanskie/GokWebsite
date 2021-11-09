@@ -15,6 +15,7 @@ app.config['SECRET_KEY'] = 'gkwemfewown' #setting secret key
 dataB = DB() #creates instance of database
 conn = dataB.createConnection() #creates connection with database
 
+#login page
 @app.route('/', methods=['GET', 'POST'])
 def login():
 
@@ -26,7 +27,7 @@ def login():
 
 			if Assist.loginCheck(username, password, dataB, conn) is True:
 				print("The following user has been logged in:" + username + "(" + password + ")")
-				#code here for sending user to home page
+				return redirect(url_for("home"))
 
 		#register submit button
 		elif request.form.get("action") == "register":
@@ -41,6 +42,12 @@ def login():
 				print("The following user has been registered " + username + "(" + password + ")")
 
 	return render_template("login.html")
+
+#home page
+@app.route('/home', methods=['GET', 'POST'])
+def home():
+
+	return render_template("home.html")
 
 if __name__ == "__main__":
 	app.run(debug=True)
