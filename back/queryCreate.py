@@ -14,8 +14,8 @@ class queryCreater:
 	
 	#creates a query for getting value. rowNr is amount of rows returned (0 if not applicable). column is column that has to be returned. value is to find correct row
 	def createGetQuery(column, column2, rowNr, value):
-		if rowNr is not 0:
-			query = 'SELECT uid FROM users ORDER BY uid ASC LIMIT ' + str(rowNr) + ';'
+		if rowNr != 0:
+			query = 'SELECT uid FROM users ORDER BY uid DESC LIMIT ' + str(rowNr) + ';'
 			return query
 
 		else:
